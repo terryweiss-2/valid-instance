@@ -358,3 +358,5 @@ dist
 .yarn/install-state.gz
 .pnp.*
 
+.tap/processinfo/*
+.idea/git_toolbox_prj.xml
