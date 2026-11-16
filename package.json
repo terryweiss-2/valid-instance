@@ -1,0 +1,35 @@
+{
+  "name": "valid-instance",
+  "version": "0.1.0",
+  "description": "Typed objects validated against a JSON Schema",
+  "type": "module",
+  "main": "index.js",
+  "types": "index.d.ts",
+  "engines": {
+    "node": ">=18"
+  },
+  "scripts": {
+    "test": "tap"
+  },
+  "license": "MIT",
+  "dependencies": {
+    "ajv": "^8.20.0",
+    "ajv-formats": "^3.0.1",
+    "check-type": "^0.4.11"
+  },
+  "devDependencies": {
+    "tap": "^21.8.1"
+  },
+  "tap": {
+    "allow-incomplete-coverage": true
+  },
+  "files": [
+    "index.js",
+    "index.d.ts",
+    "valid-instance.js",
+    "errors.js",
+    "cache.js",
+    "loader.js",
+    "net.js"
+  ]
+}

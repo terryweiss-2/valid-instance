@@ -1,0 +1,98 @@
+TAP version 14
+# Subtest: blocked ranges
+    ok 1 - 127.0.0.1
+    ok 2 - 10.1.1.1
+    ok 3 - 172.16.0.1
+    ok 4 - 192.168.1.1
+    ok 5 - 169.254.169.254
+    ok 6 - 0.0.0.0
+    ok 7 - ::1
+    ok 8 - fc00::1
+    ok 9 - fe80::1
+    ok 10 - ::ffff:127.0.0.1
+    ok 11 - ::ffff:7f00:1
+    ok 12 - 8.8.8.8
+    ok 13 - 172.32.0.1
+    ok 14 - 2606:4700::1111
+    ok 15 - ::ffff:8.8.8.8
+    1..15
+ok 1 - blocked ranges # time=10.432ms
+
+# Subtest: fetch from local server, cache reuse, warn, UA
+    ok 1 - should be equivalent
+    ok 2 - should match pattern
+    ok 3 - should be equal
+    ok 4 - should be equal
+    ok 5 - query stripped from log
+    ok 6 - second call served from cache
+    1..6
+ok 2 - fetch from local server, cache reuse, warn, UA # time=84.429ms
+
+# Subtest: in-flight dedupe
+    ok 1 - should be equal
+    1..1
+ok 3 - in-flight dedupe # time=138.375ms
+
+# Subtest: policy blocks
+    ok 1 - disabled by default
+    ok 2 - empty allow list fails closed
+    ok 3 - not on list
+    ok 4 - protocol
+    ok 5 - private IP
+    ok 6 - credentials
+    ok 7 - expected to reject
+    ok 8 - localhost blocked
+    1..8
+ok 4 - policy blocks # time=6.401ms
+
+# Subtest: content rules
+    ok 1 - expected to reject
+    ok 2 - expected to reject
+    ok 3 - expected to reject
+    ok 4 - expected to reject
+    ok 5 - expected to reject
+    ok 6 - expected to reject
+    ok 7 - expected to reject
+    ok 8 - expected to reject
+    ok 9 - redirect followed when allowed
+    1..9
+ok 5 - content rules # time=87.896ms
+
+# Subtest: integrity
+    ok 1 - expected to reject
+    ok 2 - should be equal
+    1..2
+ok 6 - integrity # time=17.292ms
+
+# Subtest: remote $ref chain, maxRefs, maxDepth
+    ok 1 - should be equivalent
+    ok 2 - expected to reject
+    ok 3 - expected to reject
+    ok 4 - expected to reject
+    1..4
+ok 7 - remote $ref chain, maxRefs, maxDepth # time=52.561ms
+
+# Subtest: offline pre-seeded cache with enabled false
+    ok 1 - should be equivalent
+    ok 2 - expected to reject
+    1..2
+ok 8 - offline pre-seeded cache with enabled false # time=22.753ms
+
+# Subtest: resolver replaces network
+    ok 1 - should be equivalent
+    1..1
+ok 9 - resolver replaces network # time=10.136ms
+
+# Subtest: schema split across multiple files
+    ok 1 - should be equivalent
+    ok 2 - expected to reject
+    1..2
+ok 10 - schema split across multiple files # time=23.683ms
+
+# Subtest: open source schema with remote $refs (SchemaStore)
+    ok 1 - should be equivalent
+    1..1
+ok 11 - open source schema with remote $refs (SchemaStore) # time=387.725ms
+
+1..11
+# time=903.782ms
